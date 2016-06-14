@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Leilao online - By Eduardo Brusch</title>
+</h:head>
+<body>
+
+	<h1>Cadastro de Usu&aacute;rios</h1>	
+
+	<h:form>
+		<h:outputText value="&#160;&#160;&#160;&#160;&#160;|" />
+		<h:commandLink action="#{navigationController.novoLeilao}"
+			value="Novo Leilao" />
+		<h:outputText value="|&#160;&#160;&#160;&#160;&#160;|" />
+		<h:commandLink action="#{navigationController.listarLeiloes}"
+			value="Listar Leiloes" />
+		<h:outputText value="|&#160;&#160;&#160;&#160;&#160;|" />
+		<h:commandLink action="#{navigationController.paginaBens}"
+			value="Cadastro de Bens" />
+		<h:outputText value="|&#160;&#160;&#160;&#160;&#160;|" />
+		<h:commandLink action="#{navigationController.contasDeUsuario}"
+			value="Contas de Usuario" />
+		<h:outputText value="|" />
+	</h:form>
+
+</body>	
+</html>
