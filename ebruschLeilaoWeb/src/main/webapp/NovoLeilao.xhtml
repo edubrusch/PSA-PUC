@@ -9,22 +9,43 @@
 </h:head>
 <body>
 
+<!-- Ao ser criado um leilão no sistema, deve ser indicado qual a forma de lances (aberto ou fechado). Também é -->
+<!-- necessário informar data/hora de início (a partir da qual são aceitos lances) e término (a partir da qual não são mais -->
+<!-- aceitos lances). Todo leilão deve possuir a identificação do usuário vendedor. Por fim, todo leilão possui um preço -->
+<!-- mínimo associado ao lote. -->
+
+
 <h1>Novo Leil&atilde;o</h1><br />
 
 	<h:form>
-		<h:outputText value="&#160;&#160;&#160;&#160;&#160;|" />
-		<h:commandLink action="#{navigationController.novoLeilao}"
-			value="Novo Leilao" />
-		<h:outputText value="|&#160;&#160;&#160;&#160;&#160;|" />
-		<h:commandLink action="#{navigationController.listarLeilao}"
-			value="Listar Leiloes" />
-		<h:outputText value="|&#160;&#160;&#160;&#160;&#160;|" />
-		<h:commandLink action="#{navigationController.PaginaLogada}"
-			value="Cadastro de Bens" />
-		<h:outputText value="|&#160;&#160;&#160;&#160;&#160;|" />
-		<h:commandLink action="#{navigationController.PaginaLogada}"
-			value="Contas de Usuario" />
-		<h:outputText value="|" />
+<!-- 		forma aberto ou fechado -->
+		<h:outputText value="" />
+<!-- 		 <h:selectOneMenu value="#{userData.data}"> -->
+		<h:selectOneMenu>
+            <f:selectItem itemValue="1" itemLabel="Aberto" />
+            <f:selectItem itemValue="2" itemLabel="Fechado" />
+         </h:selectOneMenu>
+
+		<h:outputText value="Data de inicio" />
+		<h:inputText></h:inputText>
+
+		<h:outputText value="Hora de início" />
+		<h:inputText></h:inputText>
+
+		<h:outputText value="Data de término" />
+		<h:inputText></h:inputText>
+
+		<h:outputText value="Hora de término" />
+		<h:inputText></h:inputText>
+
+		<h:outputText value="Código do Vendedor" />
+		<h:inputText></h:inputText>
+
+		<h:outputText value="Preço mínimo para o lote" />
+		<h:inputText></h:inputText>
+
+		<h:commandButton value="Criar" action="result" />
+
 	</h:form>
 
 </body>
