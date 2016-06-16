@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Leilao online - By Eduardo Brusch</title>
+</h:head>
+<body>
+
+
+
+
+<h1>Novo Bem Material</h1><br />
+
+	<h:form>
+
+		<h:outputText value="descrição breve" /><br/>
+		<h:inputText></h:inputText><br/>
+
+		<h:outputText value="descrição completa" /><br/>
+		<h:inputText></h:inputText><br/>
+
+		<h:outputText value="Categoria" /><br/>
+<!-- 		 <h:selectOneMenu value="#{userData.data}"> -->
+		<h:selectOneMenu>
+            <f:selectItem itemValue="1" itemLabel="Automoveis" />
+            <f:selectItem itemValue="2" itemLabel="Eletronicos" />
+            <f:selectItem itemValue="3" itemLabel="Equipamentos Esportivos" />
+            <f:selectItem itemValue="4" itemLabel="Imoveis" />
+            <f:selectItem itemValue="5" itemLabel="Informatica" />
+            <f:selectItem itemValue="6" itemLabel="Mobilia" />
+            <f:selectItem itemValue="7" itemLabel="Outros" />
+         </h:selectOneMenu><br/><br/><br/>
+
+		<h:commandButton value="Criar" action="result" />
+
+	</h:form>
+
+</body>
+</html>
