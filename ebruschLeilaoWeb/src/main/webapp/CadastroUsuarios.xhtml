@@ -9,20 +9,43 @@
 </h:head>
 <body>
 
-	<h1>Cadastro de Usu&aacute;rios</h1>	
+	<h1>Cadastro de Usu&aacute;rios</h1>
 
 	<h:form>
 		<h:outputText value="&#160;&#160;&#160;&#160;&#160;|" />
 		<h:commandLink action="#{navigationController.novoLeilao}"
-			value="Novo Usu&aacute;rio" />		
-	</h:form>
-	
-	<h:form>
-	
-		
-	
-	
+			value="Novo Usu&aacute;rio" />
 	</h:form>
 
-</body>	
+	<br />
+
+	<h:form>
+
+	 	<h:dataTable id="tabUsers" value="#{listagemUsuarios.listar}" var="user" border = "1">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome"/>
+                    </f:facet>
+                    <h:outputText value="#{user.nome}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="CPF / CNPJ"/>
+                    </f:facet>
+                    <h:outputText value="#{user.identificacao}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="email"/>
+                    </f:facet>
+                    <h:outputText value="#{user.email}"/>
+                </h:column>
+            </h:dataTable>
+
+
+<!-- 	/*: nome, cpf ou cnpj e endereço de e-mail. */ -->
+
+	</h:form>
+
+</body>
 </html>
