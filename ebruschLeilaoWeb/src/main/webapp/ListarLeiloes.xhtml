@@ -18,6 +18,35 @@
 			value="Novo Leilao" />	
 		
 	</h:form>
+	
+	<h:form>
+      <h:dataTable id="tabLeiloes" value="#{listagemLeiloes.listar}" var="leilao">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Data Inicio"/>
+                    </f:facet>
+                    <h:outputText value="#{leilao.dadaInicio}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Hora Inicio"/>
+                    </f:facet>
+                    <h:outputText value="#{leilao.horaInicio}"/>
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Hora Inicio"/>
+                    </f:facet>
+                    <h:outputText value="#{leilao.vendedor}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Status"/>
+                    </f:facet>
+                    <h:outputText value="#{leilao.status}"/>
+                </h:column>
+            </h:dataTable>
+	</h:form>
 
 </body>
 </html>

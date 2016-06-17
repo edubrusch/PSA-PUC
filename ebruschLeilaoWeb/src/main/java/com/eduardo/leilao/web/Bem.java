@@ -4,10 +4,10 @@ public class Bem {
 
 	private String descricaoBreve;
 	private String descricaoCompleta;
-	private String categoria;
+	private CATEGORIAENUM categoria;
 	private String ID;
 
-	public Bem(String descrBreve, String descrCompleta, String categoria){
+	public Bem(String descrBreve, String descrCompleta, CATEGORIAENUM categoria){
 
 		this.descricaoBreve = descrBreve;
 		this.descricaoCompleta = descrCompleta;
@@ -33,10 +33,10 @@ public class Bem {
 	}
 
 	public String getCategoria() {
-		return categoria;
+		return categoria.getLabel();
 	}
 
-	public void setCategoria(String categoria) {
+	public void setCategoria(CATEGORIAENUM categoria) {
 		this.categoria = categoria;
 	}
 

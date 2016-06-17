@@ -11,25 +11,33 @@
 
 <h1>Listagem de Bens!</h1><br />
 
+<h:form>
+		<h:outputText value="&#160;&#160;&#160;&#160;&#160;|" />
+		<h:commandLink action="#{navigationController.novoBem}"
+			value="Novo" />		
+	</h:form>
+	
+	<br />
+
 	<h:form>
-      <h:dataTable id="tabVisitantes" value="#{listagemBens.listar}" var="bemDono">
+      <h:dataTable id="tabVisitantes" value="#{listagemBens.listar}" var="bemDono" border = "1">
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Descricao Breve"/>
                     </f:facet>
-                    <h:outputText value="#{bemDono.DescricaoBreve}"/>
+                    <h:outputText value="#{bemDono.descricaoBreve}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Categoria"/>
                     </f:facet>
-                    <h:outputText value="#{bemDono.DescricaoCompleta}"/>
+                    <h:outputText value="#{bemDono.descricaoCompleta}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Descricao Completa"/>
                     </f:facet>
-                    <h:outputText value="#{bemDono.Categoria}"/>
+                    <h:outputText value="#{bemDono.categoria}"/>
                 </h:column>
             </h:dataTable>
 	</h:form>
