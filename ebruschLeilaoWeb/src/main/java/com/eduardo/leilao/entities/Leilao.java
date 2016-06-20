@@ -1,4 +1,4 @@
-package com.eduardo.leilao.web;
+package com.eduardo.leilao.entities;
 
 public class Leilao {
 

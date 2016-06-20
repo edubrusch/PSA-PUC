@@ -1,17 +1,25 @@
 package com.eduardo.leilao.web;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
+
+import com.eduardo.leilao.ejb.BensDAO;
+import com.eduardo.leilao.entities.Bem;
 
 @ManagedBean(name = "listagemBens", eager = true)
 public class ListagemBensBean {
-	
-	private Bem[] todosOsBens = {new Bem("lampada boa", "lampada boa fluorescente 80w", CATEGORIAENUM.OUTROS),
-			new Bem("Gol", "Gol GT ano 1991", CATEGORIAENUM.AUTOMOVEIS),
-			new Bem("Casa em capao", "Residencia em capao da canoa 3 qts na rua principal, 5470", CATEGORIAENUM.IMOVEIS)	
-			};
-	
-	public Bem[] getListar(){
-		return todosOsBens;
+
+	private BensDAO dao;
+
+	public List<Bem> getListar(){
+		List<Bem> resultado = dao.buscarTodos();
+		if(resultado ==null || resultado.get(0) == null){
+			resultado = new ArrayList<Bem>();
+			resultado.add(new Bem("Test1", "Test2", "Test3"));
+		}
+		return resultado;
 	}
 
 

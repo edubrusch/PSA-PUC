@@ -1,26 +1,26 @@
 package com.eduardo.leilao.web;
 
 public enum CATEGORIAENUM {
-	
+
 	AUTOMOVEIS("Automoveis"),
-	ELETRONICOS("ELETRONICOS"),
+	ELETRONICOS("Eletronicos"),
 	EQUIPAMENTOS_ESPORTIVOS("Equipamentos esportivos"),
 	IMOVEIS("Imoveis"),
 	INFORMATICA("Informatica"),
 	MOBILIA("Mobilia"),
 	OUTROS("Outros");
-	
+
 	private String label;
-	
+
 	private CATEGORIAENUM(String label){
 		setLabel(label);
 	}
-	
-	
+
+
 	public void setLabel(String lab){
 		this.label = lab;
 	}
-	
+
 	public String getLabel(){
 		return this.label;
 	}

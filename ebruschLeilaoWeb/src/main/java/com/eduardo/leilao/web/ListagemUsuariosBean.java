@@ -2,6 +2,8 @@ package com.eduardo.leilao.web;
 
 import javax.faces.bean.ManagedBean;
 
+import com.eduardo.leilao.entities.Usuario;
+
 
 @ManagedBean(name = "listagemUsuarios", eager = true)
 public class ListagemUsuariosBean {

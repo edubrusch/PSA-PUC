@@ -2,6 +2,8 @@ package com.eduardo.leilao.web;
 
 import javax.faces.bean.ManagedBean;
 
+import com.eduardo.leilao.entities.Leilao;
+
 @ManagedBean(name = "listagemLeiloes", eager = true)
 public class ListagemLeiloesBean {
 
