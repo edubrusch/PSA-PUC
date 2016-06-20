@@ -12,32 +12,40 @@
 <h1>Listar Leil&otilde;es</h1><br />
 
 	<h:form>
-	
+
 		<h:outputText value="&#160;&#160;&#160;&#160;&#160;|" />
 		<h:commandLink action="#{navigationController.novoLeilao}"
-			value="Novo Leilao" />	
-		
+			value="Novo Leilao" />
+
+			<br />
+
 	</h:form>
-	
+
 	<h:form>
-      <h:dataTable id="tabLeiloes" value="#{listagemLeiloes.listar}" var="leilao">
+      <h:dataTable id="tabLeiloes" value="#{listagemLeiloes.listar}" var="leilao" border = "1">
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Data Inicio"/>
                     </f:facet>
-                    <h:outputText value="#{leilao.dadaInicio}"/>
+                    <h:outputText value="#{leilao.dataInicial}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Hora Inicio"/>
                     </f:facet>
-                    <h:outputText value="#{leilao.horaInicio}"/>
+                    <h:outputText value="#{leilao.horaInicial}"/>
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Hora Inicio"/>
+                    </f:facet>
+                    <h:outputText value="#{leilao.idenificacaoVenddor}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Status"/>
+                        <h:outputText value="visibilidade por Status"/>
                     </f:facet>
-                    <h:outputText value="#{leilao.status}"/>
+                    <h:outputText value="#{leilao.visibilidade}"/>
                 </h:column>
             </h:dataTable>
 	</h:form>
