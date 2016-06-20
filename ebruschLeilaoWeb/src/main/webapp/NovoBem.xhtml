@@ -17,14 +17,13 @@
 	<h:form>
 
 		<h:outputText value="descrição breve" /><br/>
-		<h:inputText></h:inputText><br/>
+		<h:inputText value="#{novoBemBean.descricaoBreve}"></h:inputText><br/>
 
 		<h:outputText value="descrição completa" /><br/>
-		<h:inputText></h:inputText><br/>
+		<h:inputText value="#{novoBemBean.descricaoCompleta}"></h:inputText><br/>
 
 		<h:outputText value="Categoria" /><br/>
-<!-- 		 <h:selectOneMenu value="#{userData.data}"> -->
-		<h:selectOneMenu>
+		<h:selectOneMenu value="#{novoBemBean.categoria}" >
             <f:selectItem itemValue="1" itemLabel="Automoveis" />
             <f:selectItem itemValue="2" itemLabel="Eletronicos" />
             <f:selectItem itemValue="3" itemLabel="Equipamentos Esportivos" />
@@ -34,7 +33,11 @@
             <f:selectItem itemValue="7" itemLabel="Outros" />
          </h:selectOneMenu><br/><br/><br/>
 
-		<h:commandButton value="Criar" action="result" />
+		<h:commandButton value="Criar" action="#{novoBemBean.acaoNovoBem()}" />
+
+		<br />
+
+		<h:messages id="mensagens" showDetail="true"/>
 
 	</h:form>
 

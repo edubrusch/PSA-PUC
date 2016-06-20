@@ -1,4 +1,4 @@
-package com.eduardo.leilao.web;
+package com.eduardo.leilao.web.leilao;
 
 import javax.faces.bean.ManagedBean;
 

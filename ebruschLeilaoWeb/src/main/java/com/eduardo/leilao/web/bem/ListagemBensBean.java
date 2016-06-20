@@ -1,4 +1,4 @@
-package com.eduardo.leilao.web;
+package com.eduardo.leilao.web.bem;
 
 import java.util.ArrayList;
 import java.util.List;

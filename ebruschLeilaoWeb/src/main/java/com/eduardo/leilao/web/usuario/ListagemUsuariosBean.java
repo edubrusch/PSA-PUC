@@ -1,4 +1,4 @@
-package com.eduardo.leilao.web;
+package com.eduardo.leilao.web.usuario;
 
 import javax.faces.bean.ManagedBean;
 
