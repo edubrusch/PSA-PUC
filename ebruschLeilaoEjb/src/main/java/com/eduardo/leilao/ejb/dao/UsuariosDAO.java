@@ -1,13 +1,18 @@
-package com.eduardo.leilao.ejb;
+package com.eduardo.leilao.ejb.dao;
 
 import java.util.List;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.eduardo.leilao.entities.Usuario;
 
+
+@Local
+@Stateless(name="userDao")
 public class UsuariosDAO {
 
 	@PersistenceContext(unitName = "leilaoPU")
@@ -21,8 +26,6 @@ public class UsuariosDAO {
 	public List<Usuario> buscarTodos() {
         Query consulta = em.createNamedQuery("usuario.findAll");
         return consulta.getResultList();
-
-
     }
 
 }

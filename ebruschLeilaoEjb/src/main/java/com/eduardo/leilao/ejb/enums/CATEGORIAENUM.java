@@ -1,4 +1,4 @@
-package com.eduardo.leilao.ejb;
+package com.eduardo.leilao.ejb.enums;
 
 public enum CATEGORIAENUM {
 

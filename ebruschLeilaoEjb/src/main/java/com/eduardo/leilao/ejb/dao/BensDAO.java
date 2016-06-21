@@ -1,7 +1,8 @@
-package com.eduardo.leilao.ejb;
+package com.eduardo.leilao.ejb.dao;
 
 import java.util.List;
 
+import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,8 +11,8 @@ import com.eduardo.leilao.entities.Bem;
 
 
 
-
-@Stateless
+@Local
+@Stateless(name="bemDao")
 public class BensDAO {
 
 
@@ -27,8 +28,8 @@ public class BensDAO {
     	return em.createNamedQuery("bem.findAll").getResultList();
     }
 
-    public Bem buscarPorUsuario(String codigo) {
-    	return (Bem) em.createNamedQuery("bem.findAll").setParameter("dono", codigo).getResultList().get(0);
-    }
+//    public Bem buscarPorUsuario(String codigo) {
+//    	return (Bem) em.createNamedQuery("bem.findAll").getResultList().get(0);
+//    }
 
 }

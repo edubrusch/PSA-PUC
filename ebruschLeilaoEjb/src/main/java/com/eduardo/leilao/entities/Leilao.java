@@ -1,34 +1,50 @@
 package com.eduardo.leilao.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@NamedQueries({
+    @NamedQuery(name = "leilao.findAll", query = "SELECT leilao FROM Leilao leilao")})
 public class Leilao {
 
-	private String idenificacaoVenddor;
-	private String visibilidade;
-	private String dataInicial;
-	private String horaInicial;
-	private String dataFinal;
-	private String horaFinal;
-	private double precoInicial;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String ID;
 
-	public Leilao(String idenificacaoVenddor, String visibilidade, String dataInicial, String horaInicial, String dataFinal, String horaFinal, double precoInicial){
+	@ManyToOne
+	private Usuario idenificacaoVenddor;
 
-		this.idenificacaoVenddor = idenificacaoVenddor;
-		this.visibilidade = visibilidade;
-		this.dataInicial = dataInicial;
-		this.horaInicial = horaInicial;
-		this.dataFinal = dataFinal;
-		this.horaFinal = horaFinal;
-		this.precoInicial = precoInicial;
+	@NotNull
+	private String visibilidade;
 
-		this.ID = "0";
-	}
+	@NotNull
+	private String dataInicial;
 
-	public String getIdenificacaoVenddor() {
+	@NotNull
+	private String horaInicial;
+
+	@NotNull
+	private String dataFinal;
+
+	@NotNull
+	private String horaFinal;
+
+	@NotNull
+	private double precoInicial;
+
+
+	public Usuario getIdenificacaoVenddor() {
 		return idenificacaoVenddor;
 	}
 
-	public void setIdenificacaoVenddor(String idenificacaoVenddor) {
+	public void setIdenificacaoVenddor(Usuario idenificacaoVenddor) {
 		this.idenificacaoVenddor = idenificacaoVenddor;
 	}
 

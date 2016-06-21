@@ -2,40 +2,36 @@ package com.eduardo.leilao.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "BENS")
 @NamedQueries({
-    @NamedQuery(name = "bem.findAll", query = "SELECT bem FROM Bem bem"),
-    @NamedQuery(name = "bem.findByUsuario", query = "SELECT b FROM BENS b WHERE b.dono = :dono")})
+    @NamedQuery(name = "bem.findAll", query = "SELECT bem FROM Bem bem")})
 public class Bem implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+
 	@Id
-	@Basic(optional = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int ID;
+
 	@NotNull
-	@Column(name = "ID")
-	private String ID;
 	private String descricaoBreve;
+
+	@NotNull
 	private String descricaoCompleta;
+
+	@NotNull
 	private String categoria;
-	private String dono;
 
 
-	public Bem(String descrBreve, String descrCompleta, String cat) {
-
-		this.descricaoBreve = descrBreve;
-		this.descricaoCompleta = descrCompleta;
-		this.categoria = cat;
-	}
 
 	public String getDescricaoBreve() {
 		return descricaoBreve;
@@ -61,8 +57,12 @@ public class Bem implements Serializable {
 		this.categoria = categoria;
 	}
 
-	public String getID() {
+	public int getID() {
 		return ID;
+	}
+
+	public void setID(int ID) {
+		this.ID = ID;
 	}
 
 }

@@ -1,14 +1,19 @@
 package com.eduardo.leilao.web.bem;
 
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import com.eduardo.leilao.ejb.dao.BensDAO;
 import com.eduardo.leilao.entities.Bem;
 
 
 @ManagedBean(name = "novoBemBean", eager = true)
 public class NovoBemBean {
+
+	@EJB(beanName="bemDao")
+	private BensDAO dao;
 
 	private String descricaoBreve;
 	private String descricaoCompleta;
@@ -37,16 +42,17 @@ public class NovoBemBean {
 
 	public String acaoNovoBem() {
         try {
-            Bem newBem = new Bem(descricaoBreve, descricaoCompleta, categoria);
+        	Bem b = new Bem();
+        	b.setCategoria(categoria);
+        	b.setDescricaoBreve(descricaoBreve);
+        	b.setDescricaoCompleta(descricaoCompleta);
+            dao.inserir(b);
             String msg = null;
-            if (newBem != null) {
-                msg = "Bem material Inserido com sucesso.";
-            } else {
-                msg = "Bem material não foi inserido!";
-            }
+            msg = "Bem material Inserido com sucesso.";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_INFO, msg,"");
             FacesContext.getCurrentInstance().addMessage("mensagens", facesMsg);
         } catch (Exception e) {
+//        	msg = "Bem material não foi inserido!";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), e.getCause().getMessage());
             FacesContext.getCurrentInstance().addMessage(null, facesMsg);
         }
