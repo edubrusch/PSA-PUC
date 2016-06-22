@@ -1,53 +1,58 @@
 package com.eduardo.leilao.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.validation.constraints.NotNull;
 
 @Entity
-@NamedQueries({
+@NamedQueries({	
     @NamedQuery(name = "leilao.findAll", query = "SELECT leilao FROM Leilao leilao")})
 public class Leilao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String ID;
+	private int ID;
 
-	@ManyToOne
-	private Usuario idenificacaoVenddor;
+	@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "identificacao", nullable = false)
+	private Usuario idenificacaoVendedor;
 
-	@NotNull
+	@Column
 	private String visibilidade;
 
-	@NotNull
+	@Column
 	private String dataInicial;
 
-	@NotNull
+	@Column
 	private String horaInicial;
 
-	@NotNull
+	@Column
 	private String dataFinal;
 
-	@NotNull
+	@Column
 	private String horaFinal;
 
-	@NotNull
+	@Column
 	private double precoInicial;
 
 
-	public Usuario getIdenificacaoVenddor() {
-		return idenificacaoVenddor;
+	public String getIdenificacaoVenddor() {
+		return idenificacaoVendedor.getIdentificacao();
+		
+//		return idenificacaoVendedor;
 	}
 
 	public void setIdenificacaoVenddor(Usuario idenificacaoVenddor) {
-		this.idenificacaoVenddor = idenificacaoVenddor;
+		this.idenificacaoVendedor = idenificacaoVenddor;
 	}
-
+	
 	public String getVisibilidade() {
 		return visibilidade;
 	}
@@ -96,8 +101,12 @@ public class Leilao {
 		this.precoInicial = precoInicial;
 	}
 
-	public String getID() {
+	public int getID() {
 		return ID;
+	}
+	
+	public void setID( int ID) {
+		this.ID = ID;
 	}
 
 

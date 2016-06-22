@@ -17,36 +17,62 @@
 
 	<h1>Novo Leil&atilde;o</h1>
 	<br />
-
-
+	<br />
+	<br />
+	
+	<h:form>
+	<h3>
+	<h:commandLink action="#{navigationController.listarLeiloes}"
+				 value="Voltar" />
+				 
+	<h:outputText value="|&#160;&#160;&#160;&#160;&#160;|" />
+		
+	<h:commandLink action="#{navigationController.paginaLogada}"
+			value="Home" />
+			
+			</h3>
+	</h:form>
+	
 	<h:form>
 	
 	<h:panelGrid columns="2">
 	<h:outputText value="Visibilidade" /><br/>
-	<h:selectOneMenu value="Visibilidade">
+	<h:selectOneMenu value="#{novoLeilaoBean.visibilidade}">
 			<f:selectItem itemValue="1" itemLabel="Aberto" />
 			<f:selectItem itemValue="2" itemLabel="Fechado" />
 		</h:selectOneMenu> <br />
 		<h:outputText value="Data de inicio" /><h:outputText value="Hora de início" />
-		<h:inputText></h:inputText><h:inputText></h:inputText>
+		<h:inputText value="#{novoLeilaoBean.dataInicial}"></h:inputText><h:inputText value="#{novoLeilaoBean.horaInicial}"></h:inputText>
 		
 		<h:outputText value="Data de término" /><h:outputText value="Hora de término" />
-		<h:inputText></h:inputText><h:inputText></h:inputText>
+		<h:inputText value="#{novoLeilaoBean.dataFinal}"></h:inputText><h:inputText value="#{novoLeilaoBean.horaFinal}"></h:inputText>
 		
 		<h:outputText value="Código do Vendedor" />
 		<br />
-		<h:inputText></h:inputText>
+		<h:inputText value="#{novoLeilaoBean.idenificacaoVenddor}"></h:inputText>
 		<br />
 		
 		<h:outputText value="Preço mínimo para o lote" />
 		<br />
-		<h:inputText></h:inputText>
+		<h:inputText value="#{novoLeilaoBean.precoInicial}"></h:inputText>
 		<br />
 		<br />
-		<h:commandButton value="Criar" action="result" />
+		<h:commandButton value="Criar" action="#{novoLeilaoBean.acaoNovoLeilao()}" />
 	</h:panelGrid>
+	
+	<br />
+	
+	<h:messages id="mensagens" showDetail="true"/>
 
 	</h:form>
 
 </body>
 </html>
+
+<!-- 			l.setDataInicial(dataInicial); -->
+<!--         	l.setDataFinal(dataFinal); -->
+<!--         	l.setHoraFinal(horaFinal); -->
+<!--         	l.setHoraFinal(horaFinal); -->
+<!--         	l.setPrecoInicial(precoInicial); -->
+<!--         	l.setVisibilidade(visibilidade); -->
+<!--         	l.setIdenificacaoVenddor(usuarios.buscarPorIdentificacao(idenificacaoVenddor));       -->

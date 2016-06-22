@@ -4,11 +4,9 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.validation.constraints.NotNull;
 
-import com.eduardo.leilao.ejb.dao.BensDAO;
 import com.eduardo.leilao.ejb.dao.LeilaoDAO;
-import com.eduardo.leilao.entities.Bem;
+import com.eduardo.leilao.ejb.dao.UsuariosDAO;
 import com.eduardo.leilao.entities.Leilao;
 import com.eduardo.leilao.entities.Usuario;
 
@@ -16,39 +14,27 @@ import com.eduardo.leilao.entities.Usuario;
 public class NovoLeilaoBean {
 
 	@EJB(beanName="leilaoDao")
-	private LeilaoDAO dao;
+	private LeilaoDAO leiloes;	
+	
+	@EJB(beanName="userDao")
+	private UsuariosDAO usuarios;
+	
+	private String msg = "Erro ao inserir leilao: ";
 
-	private String descricaoBreve;
-	private String descricaoCompleta;
-	private String categoria;
-
-
-	private Usuario idenificacaoVenddor;
-
-
+	private String idenificacaoVenddor;
 	private String visibilidade;
-
-
 	private String dataInicial;
-
-
 	private String horaInicial;
-
-
 	private String dataFinal;
-
-
 	private String horaFinal;
-
-
 	private double precoInicial;
 
 
-	public Usuario getIdenificacaoVenddor() {
+	public String getIdenificacaoVenddor() {
 		return idenificacaoVenddor;
 	}
 
-	public void setIdenificacaoVenddor(Usuario idenificacaoVenddor) {
+	public void setIdenificacaoVenddor(String idenificacaoVenddor) {
 		this.idenificacaoVenddor = idenificacaoVenddor;
 	}
 
@@ -102,17 +88,28 @@ public class NovoLeilaoBean {
 
 
 
-	public String acaoNovoBem() {
-        try {
+	public String acaoNovoLeilao() {		
+        try {        	
         	Leilao l = new Leilao();
-        	l.set
-            dao.inserir(l);
-            String msg = null;
-            msg = "Bem material Inserido com sucesso.";
+        	l.setDataInicial(dataInicial);        	
+        	l.setDataFinal(dataFinal);        	
+        	l.setHoraInicial(horaInicial);        	
+        	l.setHoraFinal(horaInicial);        	
+        	l.setPrecoInicial(precoInicial);        	
+        	l.setVisibilidade(visibilidade);        	
+        	
+        	Usuario user = usuarios.buscarPorIdentificacao(idenificacaoVenddor);
+        	if(user==null){
+        		msg = "usuario nulo";
+        	}
+        	l.setIdenificacaoVenddor(user);        	
+            leiloes.inserir(l);            
+            msg = "Leilao Inserido com sucesso.";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_INFO, msg,"");
             FacesContext.getCurrentInstance().addMessage("mensagens", facesMsg);
         } catch (Exception e) {
-            FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), e.getCause().getMessage());
+            FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, (msg+"\n\n"+e.getMessage()), e.getCause().getMessage());
+        	
             FacesContext.getCurrentInstance().addMessage(null, facesMsg);
         }
         return "";

@@ -1,18 +1,20 @@
 package com.eduardo.leilao.web.leilao;
 
+import java.util.List;
+
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
+import com.eduardo.leilao.ejb.dao.LeilaoDAO;
 import com.eduardo.leilao.entities.Leilao;
 
 @ManagedBean(name = "listagemLeiloes", eager = true)
 public class ListagemLeiloesBean {
 
+	@EJB(beanName="leilaoDao")
+	private LeilaoDAO dao;
 
-	private Leilao[] todosOsLeiloes = {new Leilao("201606170001", "aberto", "2016-06-17", "20:07", "2016-06-17", "23:50", 4550.07 )
-			};
-
-	public Leilao[] getListar(){
-		return todosOsLeiloes;
+	public List<Leilao> getListar(){
+		return dao.buscarTodos();
 	}
-
 }

@@ -14,20 +14,25 @@
 
 <h1>Novo usuario</h1><br />
 
+<br />
+
+<h:form>
+	<h:commandLink action="#{navigationController.contasDeUsuario}"
+				value="Voltar" />
+</h:form>
+
 	<h:form>
 
 		<h:outputText value="Nome" /><br/>
-		<h:inputText></h:inputText><br/>
+		<h:inputText value="#{novoUsuarioBean.nome}"></h:inputText><br/>
 
 		<h:outputText value="CPF / CNPJ" /><br/>		
-		<h:inputText></h:inputText><br/>		
+		<h:inputText value="#{novoUsuarioBean.identificacao}"></h:inputText><br/>		
 		
 		<h:outputText value="e-mail" /><br/>
-		<h:inputText></h:inputText><br/>
+		<h:inputText value="#{novoUsuarioBean.email}"></h:inputText><br/>
 
-		<h:commandButton value="Criar" action="result" />
-		
-		
+		<h:commandButton value="Criar" action="#{novoUsuarioBean.acaoNovoUsuario}" />		
 
 	</h:form>
 

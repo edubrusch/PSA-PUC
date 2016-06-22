@@ -27,5 +27,12 @@ public class UsuariosDAO {
         Query consulta = em.createNamedQuery("usuario.findAll");
         return consulta.getResultList();
     }
+    
+    
+    public Usuario buscarPorIdentificacao(String ident) {
+    	Query consulta = em.createNamedQuery("usuario.findByIdentificacao");
+    	consulta.setParameter("identificacao", ident);
+    	return (Usuario) consulta.getSingleResult();
+    }
 
 }

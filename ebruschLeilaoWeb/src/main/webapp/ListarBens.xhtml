@@ -10,13 +10,23 @@
 <body>
 
 <h1>Listagem de Bens!</h1><br />
-
+<br />
+<br />
 <h:form>
+<h3>
 		<h:outputText value="&#160;&#160;&#160;&#160;&#160;|" />
+		
 		<h:commandLink action="#{navigationController.novoBem}"
 			value="Novo" />		
+		
+		<h:outputText value="|&#160;&#160;&#160;&#160;&#160;|" />
+		
+		<h:commandLink action="#{navigationController.paginaLogada}"
+			value="Home" />	
+	</h3>		
 	</h:form>
 	
+	<br />
 	<br />
 
 	<h:form>

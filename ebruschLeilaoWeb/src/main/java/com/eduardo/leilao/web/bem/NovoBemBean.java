@@ -23,18 +23,23 @@ public class NovoBemBean {
 	public String getDescricaoBreve() {
 		return descricaoBreve;
 	}
+	
 	public void setDescricaoBreve(String descricaoBreve) {
 		this.descricaoBreve = descricaoBreve;
 	}
+	
 	public String getDescricaoCompleta() {
 		return descricaoCompleta;
 	}
+	
 	public void setDescricaoCompleta(String descricaoCompleta) {
 		this.descricaoCompleta = descricaoCompleta;
 	}
+	
 	public String getCategoria() {
 		return categoria;
 	}
+	
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
@@ -51,8 +56,7 @@ public class NovoBemBean {
             msg = "Bem material Inserido com sucesso.";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_INFO, msg,"");
             FacesContext.getCurrentInstance().addMessage("mensagens", facesMsg);
-        } catch (Exception e) {
-//        	msg = "Bem material não foi inserido!";
+        } catch (Exception e) {        	
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), e.getCause().getMessage());
             FacesContext.getCurrentInstance().addMessage(null, facesMsg);
         }

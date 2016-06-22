@@ -8,7 +8,6 @@ import javax.faces.bean.ManagedBean;
 import com.eduardo.leilao.ejb.dao.UsuariosDAO;
 import com.eduardo.leilao.entities.Usuario;
 
-
 @ManagedBean(name = "listagemUsuarios", eager = true)
 public class ListagemUsuariosBean {
 
